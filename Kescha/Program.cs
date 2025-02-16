@@ -3,6 +3,7 @@ class Program
 {
     static void Main()
     {
+        #region
         //Task_1
         Console.Write("Radiusni kiriting: ");
         if (double.TryParse(Console.ReadLine(), out double radius) && radius > 0)
@@ -50,5 +51,78 @@ class Program
         {
             Console.WriteLine("Noto'g'ri yil kiritildi.");
         }
+        #endregion
+
+        #region Basics.Tanlash bo’limi uchun 1-amaliy vazifa
+        //Task_1 String ustida amallar
+        Console.Write("Stringni kiriting: ");
+        string str = Console.ReadLine();
+
+        Console.Write("Sonni kiriting: ");
+        int num_x = int.Parse(Console.ReadLine());
+
+        if (num_x > str.Length)
+        {
+            str = str.ToUpper();
+        }
+        else
+        {
+            str = str.ToLower();
+        }
+
+        Console.WriteLine($"Natija: {str}");
+
+        //Task_2 Quyida ternary operator bilan ifodalandan qiymatni if-else yordamida ifodalang.
+        int x = 15;
+        int y = 10;
+        string result;
+
+        //string result = (x > y)
+        //    ? "x, y dan katta"
+        //    : (x < y)
+        //        ? "x, y dan kichkina"
+        //        : (x == y)
+        //            ? "x, y ga teng" 
+        //            : "x bina y ni solishtirib bo'lmaydi";
+
+        if (x > y)
+        {
+            result = "x, y dan katta";
+        }
+        else if (x < y)
+        {
+            result = "x, y dan kichkina";
+        }
+        else if (x == y)
+        {
+            result = "x, y ga teng";
+        }
+        else
+        {
+            result = "x bilan y ni solishtirib bo'lmaydi";
+        }
+
+        //Task_3 Consoleda o’zbek tilida kiritilgan hafta kunini ingliz tiliga o’girib,
+                //natijani ekranga chiqaradigan dastur tuzing. Switch expression dan foydalaning!
+
+        Console.Write("Hafta kunini kiriting (o'zbek tilida): ");
+        string haftaKuniUz = Console.ReadLine().ToLower();
+
+        string haftaKuniEn = haftaKuniUz switch
+        {
+            "dushanba" => "Monday",
+            "seshanba" => "Tuesday",
+            "chorshanba" => "Wednesday",
+            "payshanba" => "Thursday",
+            "juma" => "Friday",
+            "shanba" => "Saturday",
+            "yakshanba" => "Sunday",
+            _ => "Noto'g'ri hafta kuni"
+        };
+
+        Console.WriteLine($"Ingliz tilida: {haftaKuniEn}");
+        #endregion
     }
+
 }
+
